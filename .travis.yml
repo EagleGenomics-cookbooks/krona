@@ -1,0 +1,37 @@
+sudo: required
+dist: trusty
+addons:
+  apt:
+    sources:
+    - chef-stable-trusty
+    packages:
+    - chefdk
+install: echo "skip bundle install"
+branches:
+  only:
+  - master
+
+services: docker
+
+env:
+  matrix:
+  - INSTANCE=default-ubuntu-1604
+  - INSTANCE=default-centos-73
+
+before_script:
+- sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables
+  -N DOCKER )
+- eval "$(/opt/chefdk/bin/chef shell-init bash)"
+- chef gem install kitchen-ec2
+- chef gem install kitchen-docker
+- chef gem install kitchen-transport-rsync
+- /opt/chefdk/bin/chef exec rake tests
+script:
+- KITCHEN_LOCAL_YAML=.kitchen.yml
+- travis_wait 30 /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
+after_script:
+- /opt/chefdk/embedded/bin/kitchen destroy ${INSTANCE}
+notifications:
+  email:
+    on_success: change
+    on_failure: always

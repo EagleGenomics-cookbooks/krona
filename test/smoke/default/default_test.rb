@@ -8,10 +8,10 @@
 describe command('ktImportTaxonomy') do
   it { should exist }
   its('exit_status') { should eq 0 }
-  its('stdout') { should match /KronaTools 2.7 - ktImportTaxonomy/ }
+  its('stdout') { should match(/KronaTools 2.7 - ktImportTaxonomy/) }
 end
 
 describe command('ktImportText /usr/local/krona_src/KronaTools/test/krona_test.txt -o krono.html') do
   its('exit_status') { should eq 0 }
-  its('stdout') { should match /Writing krono.html.../ }
+  its('stdout') { should match(/Writing krono.html.../) }
 end

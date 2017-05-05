@@ -19,6 +19,8 @@ issues_url 'https://github.com/EagleGenomics-cookbooks/krona/issues'
 #
 source_url 'https://github.com/EagleGenomics-cookbooks/krona'
 
+supports 'ubuntu'
+
 depends 'build-essential'
 depends 'apt'
 depends 'git'

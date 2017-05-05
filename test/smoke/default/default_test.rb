@@ -5,14 +5,13 @@
 # The Inspec reference, with examples and extensive documentation, can be
 # found at http://inspec.io/docs/reference/resources/
 
-unless os.windows?
-  # This is an example test, replace with your own test.
-  describe user('root'), :skip do
-    it { should exist }
-  end
+describe command('ktImportTaxonomy') do
+  it { should exist }
+  its('exit_status') { should eq 0 }
+  its('stdout') { should match /KronaTools 2.7 - ktImportTaxonomy/ }
 end
 
-# This is an example test, replace it with your own test.
-describe port(80), :skip do
-  it { should_not be_listening }
+describe command('ktImportText /usr/local/krona_src/KronaTools/test/krona_test.txt -o krono.html') do
+  its('exit_status') { should eq 0 }
+  its('stdout') { should match /Writing krono.html.../ }
 end

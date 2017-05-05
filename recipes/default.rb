@@ -29,3 +29,13 @@ execute 'run updateTaxonomy.sh to update taxonomy' do
   command './updateTaxonomy.sh'
   cwd "#{node['krona']['src_dir']}/KronaTools"
 end
+
+# add in a test file
+# Create a test dir
+directory "#{node['krona']['src_dir']}/KronaTools/test" do
+  action :create
+end
+
+cookbook_file "#{node['krona']['src_dir']}/KronaTools/test/krona_test.txt" do
+  source 'krona_test.txt'
+end

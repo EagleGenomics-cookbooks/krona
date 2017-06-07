@@ -39,3 +39,7 @@ end
 cookbook_file "#{node['krona']['src_dir']}/KronaTools/test/krona_test.txt" do
   source 'krona_test.txt'
 end
+
+magic_shell_environment 'KRONA_VERSION' do
+  value node['krona']['version']
+end

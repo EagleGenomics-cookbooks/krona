@@ -22,5 +22,6 @@ source_url 'https://github.com/EagleGenomics-cookbooks/krona'
 supports 'ubuntu'
 
 depends 'build-essential'
+depends 'magic_shell'
 depends 'apt'
 depends 'git'

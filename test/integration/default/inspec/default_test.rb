@@ -5,13 +5,14 @@
 # The Inspec reference, with examples and extensive documentation, can be
 # found at http://inspec.io/docs/reference/resources/
 
-describe command('ktImportTaxonomy') do
-  it { should exist }
+require_relative './spec_helper.rb'
+
+describe command('. /etc/profile; ktImportTaxonomy') do
   its('exit_status') { should eq 0 }
   its('stdout') { should match(/KronaTools 2.7 - ktImportTaxonomy/) }
 end
 
-describe command('ktImportText /usr/local/krona_src/KronaTools/test/krona_test.txt -o krono.html') do
+describe command('. /etc/profile; ktImportText /usr/local/krona_src/KronaTools/test/krona_test.txt -o krono.html') do
   its('exit_status') { should eq 0 }
   its('stdout') { should match(/Writing krono.html.../) }
 end

@@ -5,8 +5,6 @@
 # The Inspec reference, with examples and extensive documentation, can be
 # found at http://inspec.io/docs/reference/resources/
 
-#require_relative './spec_helper.rb'
-
 describe command('. /etc/profile; ktImportTaxonomy') do
   its('exit_status') { should eq 0 }
   its('stdout') { should match(/KronaTools 2.7 - ktImportTaxonomy/) }

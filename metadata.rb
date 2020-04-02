@@ -1,27 +1,14 @@
 name 'krona'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
-license 'All Rights Reserved'
+maintainer 'Eagle Genomics Ltd'
+maintainer_email 'chef@eaglegenomics.com'
+license 'Apache-2.0'
 description 'Installs/Configures krona'
-long_description 'Installs/Configures krona'
-version '0.1.2'
-chef_version '>= 12.1' if respond_to?(:chef_version)
-
-# The `issues_url` points to the location where issues for this cookbook are
-# tracked.  A `View Issues` link will be displayed on this cookbook's page when
-# uploaded to a Supermarket.
-#
-issues_url 'https://github.com/EagleGenomics-cookbooks/krona/issues'
-
-# The `source_url` points to the development reposiory for this cookbook.  A
-# `View Source` link will be displayed on this cookbook's page when uploaded to
-# a Supermarket.
-#
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+chef_version '>= 14.10'
+supports 'ubuntu', '= 18.04'
 source_url 'https://github.com/EagleGenomics-cookbooks/krona'
+issues_url 'https://github.com/EagleGenomics-cookbooks/krona/issues'
+version '0.0.1'
 
-supports 'ubuntu'
-
-depends 'build-essential'
-depends 'magic_shell'
-depends 'apt'
+depends 'magic_shell', '= 1.0.1'
 depends 'git'

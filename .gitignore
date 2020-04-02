@@ -1,5 +1,4 @@
 .vagrant
-Berksfile.lock
 *~
 *#
 .#*
@@ -9,12 +8,15 @@ Berksfile.lock
 
 # Bundler
 Gemfile.lock
+gems.locked
 bin/*
 .bundle/*
 
+# test kitchen
 .kitchen/
 .kitchen.local.yml
-kitchen.log
 
-eagletravis-ci
-eagletravis-ci.pem
+# Chef
+Berksfile.lock
+.zero-knife.rb
+Policyfile.lock.json
